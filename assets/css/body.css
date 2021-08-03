@@ -1,0 +1,56 @@
+body {
+  background-image: url("../images/bgbody.jpg");
+}
+
+.bg-vector {
+  background-color: #a0e7e5;
+  background-size: cover;
+}
+
+.judul {
+  color: blue;
+}
+
+.card-login {
+  margin-right: 48px;
+  margin-top: 48px;
+  margin-bottom: 48px;
+}
+
+.desc {
+  font-size: 14px;
+  color: blue;
+  margin-top: 24px;
+}
+
+.text-bold {
+  font-weight: bold;
+}
+
+.link {
+  text-decoration: underline;
+  color: blue;
+  font-weight: bold;
+}
+
+.link:hover {
+  color: blue;
+  font-weight: bold;
+}
+
+.btn-red {
+  background-color: blue;
+  color: #fff;
+  transition: 300ms;
+  display: block;
+  padding: 16px;
+}
+
+.btn-red:hover {
+  background-color: blue;
+  color: #fff;
+}
+
+#btnsubmit {
+  display: none;
+}

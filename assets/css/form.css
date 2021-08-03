@@ -1,0 +1,71 @@
+.input-container {
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  margin-bottom: 15px;
+}
+
+.icon {
+  padding: 18px;
+  background: blue;
+  color: #fff;
+  min-width: 50px;
+  text-align: center;
+  border-bottom-left-radius: 50px;
+  border-top-left-radius: 50px;
+  transition: 300ms;
+}
+
+.input-field {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid transparent;
+  background: blue;
+  color: white;
+  border-bottom-right-radius: 50px;
+  border-top-right-radius: 50px;
+  transition: 300ms;
+}
+
+.toggle-container {
+  border-bottom-right-radius: 0px;
+  border-top-right-radius: 0px;
+}
+
+.input-field:focus {
+  border: 2px solid blue;
+  background: white;
+  color: blue;
+  outline: none;
+}
+
+.icon-toggle {
+  padding-top: 15px;
+  padding-right: 15px;
+  padding-bottom: 19px;
+  padding-left: 13px;
+  text-align: center;
+  font-size: 18px;
+  background: blue;
+  color: white;
+  border-bottom-right-radius: 50px;
+  border-top-right-radius: 50px;
+}
+
+.font-check{
+    color: blue;
+    font-size: 16px;
+}
+
+::placeholder { 
+  color:rgb(228, 228, 228);
+  opacity: 1;
+}
+
+:-ms-input-placeholder { 
+  color:rgb(228, 228, 228);
+}
+
+::-ms-input-placeholder { 
+    color:rgb(228, 228, 228);
+}
+
