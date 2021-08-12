@@ -23,12 +23,13 @@ if ($result->num_rows > 0) {
         <td>" . $row['status_hubungan'] . " </td>
         <td>" . $row['jumlah_tanggungan'] . " </td>
         <td class = 'btn-group'>
-        <button class = 'btn btn-primary'>Detail</button>
-        <button class = 'btn btn-warning'>Update</button>
-        <button class = 'btn btn-danger'>Delete</button>
+        <button class = 'btn btn-primary' data-id='$row[nomor_kartukeluarga]' id='btnDetailPenduduk$row[nomor_kartukeluarga]' onclick='DetailFunction(btnDetailPenduduk$row[nomor_kartukeluarga]);'>Detail</button>
+        <button class = 'btn btn-danger' data-id='$row[nomor_kartukeluarga]' id='btnDeletePenduduk$row[nomor_kartukeluarga]' onclick='DeleteFunction(btnDeletePenduduk$row[nomor_kartukeluarga]);'>Delete</button>
         </td>
         </tr>";
-
+        
         $nomor++;
     }
 }
+
+// <button class = 'btn btn-warning' data-id='$row[nomor_kartukeluarga]' id='btnUpdatePenduduk$row[nomor_kartukeluarga]' onclick='UpdateFunction(btnUpdatePenduduk$row[nomor_kartukeluarga]);'>Update</button>

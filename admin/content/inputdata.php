@@ -18,41 +18,17 @@
                 </div>
                 <!-- Card Body -->
                 <div class="card-body">
-                    <div id="stepwizard">
-                        <ul class="nav">
-                            <li>
-                                <a class="nav-link" href="#step-1">Step 1<br /><small>Data Wilayah</small></a>
-                            </li>
-                            <li>
-                                <a class="nav-link" href="#step-2">Step 2<br /><small>Data Biodata</small></a>
-                            </li>
-                            <li>
-                                <a class="nav-link" href="#step-3">Step 3<br /><small>Data Individu</small></a>
-                            </li>
-                            <li>
-                                <a class="nav-link" href="#step-4">Step 4<br /><small>Data Status</small></a>
-                            </li>
-                        </ul>
-
-                        <div class="tab-content ">
-                            <form action="" class="container" id="inputdata" method="POST">
-                                <div id="step-1" class="tab-pane p-2" role="tabpanel">
-                                    <?php include_once 'content/stepwizard/inputdatawilayah.php' ?>
-                                </div>
-                                <div id="step-2" class="tab-pane p-2" role="tabpanel">
-                                    <?php include_once 'content/stepwizard/inputdatabiodata.php' ?>
-                                </div>
-                                <div id="step-3" class="tab-pane p-2" role="tabpanel">
-                                    <?php include_once 'content/stepwizard/inputdataindividu.php' ?>
-                                </div>
-                                <div id="step-4" class="tab-pane p-2" role="tabpanel">
-                                    <?php include_once 'content/stepwizard/inputdatastatus.php' ?>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
+                    <form id="inputDataForm">
+                        <?php include_once 'content/stepwizard/inputdatawilayah.php' ?>
+                        <button type="button" class="btn btn-primary d-none" id="inputData">Submit</button>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
-    <!-- /.container-fluid -->
+
+    <div id="modalCollectionInputData">
+
+    </div>
+</div>
+<!-- /.container-fluid -->

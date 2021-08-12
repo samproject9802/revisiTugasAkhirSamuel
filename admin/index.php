@@ -18,36 +18,34 @@ if (!isset($_SESSION['login'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-
+    
     <title>INDOSTAT - Dashboard Admin</title>
-
+    
     <link rel="icon" href="../assets/images/favicon.png" type="">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <!-- Custom fonts for this template-->
     <link href="../assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-    <link href="../assets/plugin/datepicker/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
-    <link href="../assets/plugin/datepicker/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+    <link href="../assets/vendor/fontawesome-free/css/fontawesome.min.css" rel="stylesheet" media="all">
 
     <!-- Custom styles for this template-->
     <link rel="stylesheet" href="../assets/css/sb-admin-2.min.css">
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="../assets/vendor/datatables/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="../assets/plugin/smartwizard/dist/css/smart_wizard_arrows.min.css">
-    <link rel="stylesheet" href="../assets/plugin/datepicker/jquery-datetimepicker/build/jquery.datetimepicker.min.css">
-
-    <l src="../assets/plugin/bs5/dist/js/bootstrap.js"></l>
-    <script src="https://cdn.jsdelivr.net/npm/smartwizard@5/dist/js/jquery.smartWizard.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="../assets/plugin/smartwizard/dist/css/smart_wizard_all.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
-
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker.min.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/smartwizard@5/dist/js/jquery.smartWizard.min.js" type="text/javascript"></script>
     <link rel="stylesheet" href="../assets/plugin/sweetalert2/dist/sweetalert2.min.css">
 
     <!-- Kuisioner Library -->
     <link rel="stylesheet" href="https://unpkg.com/survey-core@1.8.53/survey.css" />
     <script src="https://unpkg.com/knockout@3.5.1/build/output/knockout-latest.js"></script>
     <script src="https://unpkg.com/survey-knockout@1.8.53/survey.ko.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.1.0/velocity.min.js"></script>
     <link rel="stylesheet" href="../assets/css/survey.css">
 </head>
@@ -194,11 +192,85 @@ if (!isset($_SESSION['login'])) {
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+    <div class="modal fade" id="showDetailAnggotaModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog modal-xl">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel"><b>Detail Keluarga</b></h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body p-3">
+            <h3 class="text-center mb-5"><b>Data Anggota Keluarga</b></h3>
+            <table class="table table-bordered mb-3" width="100%" cellspacing="0">
+                <thead>
+                    <tr class="text-center">
+                        <th>No.</th>
+                        <th>Nama Lengkap</th>
+                        <th>NIK</th>
+                        <th>Jenis Kelamin</th>
+                        <th>Tempat Lahir</th>
+                        <th>Tanggal Lahir</th>
+                        <th>Agama</th>
+                        <th>Pendidikan</th>
+                        <th>Jenis Pekerjaan</th>
+                    </tr>
+                    <tr class="text-center">
+                        <th></th>
+                        <th>(1)</th>
+                        <th>(2)</th>
+                        <th>(3)</th>
+                        <th>(4)</th>
+                        <th>(5)</th>
+                        <th>(6)</th>
+                        <th>(7)</th>
+                        <th>(8)</th>
+                    </tr>
+                </thead>
+                <tbody id="kategoriDataKeluargaSatu"></tbody>
+            </table>
+            </br>
+            <table class="table table-bordered mb-3" width="100%" cellspacing="0">
+                <thead>
+                    <tr class="text-center">
+                        <th>No.</th>
+                        <th>Status Perkawinan</th>
+                        <th>Status Hubungan Dalam Keluarga</th>
+                        <th>Kewarganegaraan</th>
+                        <th colspan="2">Nama Orangtua</th>
+                    </tr>
+                    <tr class="text-center">
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th>Ayah</th>
+                        <th>Ibu</th>
+                    </tr>
+                    <tr class="text-center">
+                        <th></th>
+                        <th>(9)</th>
+                        <th>(10)</th>
+                        <th>(11)</th>
+                        <th>(12)</th>
+                        <th>(13)</th>
+                    </tr>
+                </thead>
+                <tbody id="kategoriDataKeluargaDua"></tbody>
+            </table>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
-    <!-- Bootstrap core JavaScript-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/jquery.session.js"></script>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.min.js"></script>
     <!-- Core plugin JavaScript-->
     <script src="../assets/vendor/jquery-easing/jquery.easing.min.js"></script>
 
@@ -206,32 +278,32 @@ if (!isset($_SESSION['login'])) {
     <script src="../assets/js/sb-admin-2.min.js"></script>
 
     <!-- Page level plugins -->
-    <script src="../assets/vendor/chart.js/Chart.min.js"></script>
+    <!-- <script src="../assets/vendor/chart.js/Chart.min.js"></script> -->
 
     <!-- Page level custom scripts -->
-    <script src="../assets/js/demo/chart-area-demo.js"></script>
-    <script src="../assets/js/demo/chart-pie-demo.js"></script>
+    <!-- <script src="../assets/js/demo/chart-area-demo.js"></script>
+    <script src="../assets/js/demo/chart-pie-demo.js"></script> -->
 
     <!-- Page level plugins -->
     <script src="../assets/vendor/datatables/jquery.dataTables.min.js"></script>
     <script src="../assets/vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
     <!-- Page level custom scripts -->
-    <script src="../assets/js/demo/datatables-demo.js"></script>
+    <!-- <script src="../assets/js/demo/datatables-demo.js"></script> -->
     <!-- Main JS-->
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="../assets/plugin/smartwizard/dist/js/jquery.smartWizard.min.js"></script>
-    <script src="../assets/plugin/datepicker/jquery-datetimepicker/build/jquery.datetimepicker.full.min.js"></script>
     <script src="../assets/plugin/sweetalert2/dist/sweetalert2.min.js"></script>
     <script src="../assets/js/custom.js"></script>
     <script src="../assets/js/smartwizard.js"></script>
-    <script src="../assets/js/datepicker.js"></script>
     <script src="../assets/js/datatable.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#dataTable').DataTable();
+        })
+    </script>
     
     <!-- Survey Generator JS -->
-    <script src="../assets/js/surveygenerator/judul.js"></script>
-    <script src="../assets/js/surveygenerator/bagian.js"></script>
     <script src="../assets/js/surveygenerator/showkuisioner.js"></script>
 
 </body>
