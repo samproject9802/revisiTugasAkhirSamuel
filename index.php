@@ -162,7 +162,7 @@
                                                 </form>
                                             </div>
                                             <div class="tab-pane fade" id="signup" role="tabpanel" aria-labelledby="signup-tab">
-                                                <form method="POST" name="myForm" action="assets/php/register.php">
+                                                <form id="signupForm">
 
                                                     <div class="row justify-content-center mt-5">
 
@@ -207,7 +207,7 @@
                                                         <div class="col-lg-10 col-md-10">
                                                             <div class="input-container mx-2">
                                                                 <i class="fas fa-id-card icon"></i>
-                                                                <input class="input-field" type="text" placeholder="No. KTP Kepala Keluarga" name="idnumber" required>
+                                                                <input class="input-field" type="text" placeholder="No. KTP" name="idnumber" required>
                                                             </div>
                                                         </div>
 
@@ -264,6 +264,7 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
         <script src="assets/js/javascript.js"></script>
         <script src="assets/js/validation.js"></script>
+        <script src="assets/js/registration.js"></script>
 </body>
 
 </html>

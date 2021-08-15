@@ -32,11 +32,10 @@ if (!isset($_SESSION['login'])) {
     <!-- Custom styles for this template-->
     <link rel="stylesheet" href="../assets/css/sb-admin-2.min.css">
     <link rel="stylesheet" href="../assets/css/style.css">
-    <link rel="stylesheet" href="../assets/vendor/datatables/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.25/datatables.min.css"/>
     <link rel="stylesheet" href="../assets/plugin/smartwizard/dist/css/smart_wizard_arrows.min.css">
     <link rel="stylesheet" href="../assets/plugin/smartwizard/dist/css/smart_wizard_all.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker.min.css">
 
     <script src="https://cdn.jsdelivr.net/npm/smartwizard@5/dist/js/jquery.smartWizard.min.js" type="text/javascript"></script>
@@ -88,6 +87,8 @@ if (!isset($_SESSION['login'])) {
                         require_once 'content/kelolabagian.php';
                     }elseif ($page == "hasil-survei") {
                         require_once 'content/hasilsurvei.php';
+                    }elseif ($page == "laporan-survei") {
+                        require_once 'content/laporansurvei.php';
                     }
                 } else {
                     require_once 'content/dashboard.php';
@@ -284,14 +285,10 @@ if (!isset($_SESSION['login'])) {
     <!-- <script src="../assets/js/demo/chart-area-demo.js"></script>
     <script src="../assets/js/demo/chart-pie-demo.js"></script> -->
 
-    <!-- Page level plugins -->
-    <script src="../assets/vendor/datatables/jquery.dataTables.min.js"></script>
-    <script src="../assets/vendor/datatables/dataTables.bootstrap4.min.js"></script>
-
     <!-- Page level custom scripts -->
     <!-- <script src="../assets/js/demo/datatables-demo.js"></script> -->
     <!-- Main JS-->
-    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
+    <script src="https://cdn.datatables.net/v/dt/dt-1.10.25/datatables.min.js"></script>
     <script src="../assets/plugin/smartwizard/dist/js/jquery.smartWizard.min.js"></script>
     <script src="../assets/plugin/sweetalert2/dist/sweetalert2.min.js"></script>
     <script src="../assets/js/custom.js"></script>
@@ -299,7 +296,12 @@ if (!isset($_SESSION['login'])) {
     <script src="../assets/js/datatable.js"></script>
     <script>
         $(document).ready(function() {
-            $('#dataTable').DataTable();
+            $('#dataTable').DataTable( {
+                responsive: true,
+            } );
+            $('#tableShowDataResult').DataTable( {
+                responsive: true,
+            } );
         })
     </script>
     

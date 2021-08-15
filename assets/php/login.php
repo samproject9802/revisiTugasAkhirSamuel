@@ -26,6 +26,7 @@ if ($loginas == "Penduduk") {
             while ($row = $sqluser->fetch_assoc()) {
                 $_SESSION['id_user'] = $row['id_user'];
                 $_SESSION['nomor_kartukeluarga'] = $row['nomor_kartukeluarga'];
+                $_SESSION['nomor_ktp'] = $row['nomor_ktp'];
             }
         }
         header("location: ../../index.php?task=login-success-user");

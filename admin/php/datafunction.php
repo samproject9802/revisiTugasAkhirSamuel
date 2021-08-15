@@ -49,13 +49,12 @@ if ($task == "SelectDataPenduduk") {
                 }
             }
         }
-        echo json_encode($dataDel);
     }
 
 } else if ($task == "DeleteDataWilayah") {
     $nomorKK = $_POST['nomorIDKK'];
 
-    $sqlDeleteTahap4 = "DELETE FROM `table_biodata`
+    $sqlDeleteTahap4 = "DELETE FROM `table_wilayah`
                         WHERE nomor_kartukeluarga='$nomorKK'";
     if ($conn->query($sqlDeleteTahap4) == true) {
         echo "Sukses";

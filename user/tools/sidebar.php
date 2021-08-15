@@ -14,7 +14,7 @@ else $page = 'dashboard';
     <hr class="sidebar-divider my-0">
 
     <!-- Nav Item - Dashboard -->
-    <li class="nav-item <?= $page == 'dashboard' || $page == '' ? 'active' : ''; ?>">
+    <li class="nav-item <?= $page == 'dashboard' ? 'active' : ''; ?>">
         <a class="nav-link" href="?page=dashboard">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
@@ -25,19 +25,19 @@ else $page = 'dashboard';
 
     <!-- Heading -->
     <div class="sidebar-heading">
-        Kuisioner
+        Data
     </div>
 
     <!-- Nav Item - Profile -->
     <li class="nav-item <?= $page == 'kuisioner' ? 'active' : ''; ?>">
-        <a class="nav-link collapsed" href="?page=kuisioner" aria-expanded="true" aria-controls="kuisioner">
-            <i class="fas fa-tasks"></i>
+        <a class="nav-link collapsed" href="?page=kuisioner">
+        <i class="fas fa-clipboard-list"></i>
             <span>Kuisioner</span>
         </a>
     </li>
 
     <!-- Divider -->
-    <hr class="sidebar-divider d-none d-md-block">
+    <hr class="sidebar-divider">
 
     <!-- Sidebar Toggler (Sidebar) -->
     <div class="text-center d-none d-md-inline">

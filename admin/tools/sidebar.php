@@ -59,7 +59,7 @@ else $page = 'dashboard';
         <div id="datalaporan" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <a class="collapse-item" href="?page=hasil-survei">Survey Preview</a>
-                <a class="collapse-item" href="#">Laporan Data Survei</a>
+                <a class="collapse-item" href="?page=laporan-survei">Laporan Data Survei</a>
             </div>
         </div>
     </li>

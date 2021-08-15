@@ -1,27 +1,26 @@
+<!-- Begin Page Content -->
 <div class="container-fluid">
 
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Kuisoner</h1>
+        <h1 class="h3 mb-0 text-gray-800">Kuisioner</h1>
     </div>
 
     <!-- Content Row -->
 
     <div class="row">
-
-        <?php
-        require_once "php/koneksi.php";
-        $sql = "SELECT * FROM `table_survey`";
-        $result = $conn->query($sql);
-        while ($row = $result->fetch_assoc()) :
-        ?>
-            <div class="card m-3" style="width: 18rem;">
-                <div class="card-body">
-                    <h5 class="card-title"><?= $row['judul_survey']; ?></h5>
-                    <a href="?page=detail-survei&id=<?= $row['id_survey']; ?>" class="btn btn-primary">Detail</a>
+        <!-- Area Chart -->
+        <div class="col">
+            <div class="card shadow mb-4">
+                <!-- Card Header - Dropdown -->
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <h6 class="m-0 font-weight-bold text-primary">Form Input Kuisioner</h6>
                 </div>
+                <!-- Card Body -->
+                <div class="card-body p-3">
+                    <div id="surveyElement" style="display:inline-block; width:100%;"></div>
+                <div>
             </div>
-        <?php endwhile; ?>
-
+        </div>
     </div>
 </div>
